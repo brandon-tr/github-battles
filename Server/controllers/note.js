@@ -3,10 +3,11 @@ var Github = mongoose.model('Github')
 
 module.exports = {
     create1: function(req, res) {
-        console.log(req.body.name)
         Github.find({name: req.body.name}, function(err, user){
-            if (!err) {
-                Github.update({name:req.body.name}, {score: req.body.score})
+            if (user.length > 0) {
+                Github.update({name:req.body.name}, {score: req.body.score}, function(err){
+                    console.log(err)
+                })
             }else{
                 var github = new Github(req.body);
                 github.save(function(err){
@@ -16,9 +17,11 @@ module.exports = {
         })
     },
     create2: function(req, res) {
-        Github.find({name: 'asdasd'}, function(err, user){
+        Github.find({name: req.body.name}, function(err, user){
             if (user.length > 0) {
-                Github.update({name:req.body.name}, {score: req.body.score})
+                Github.update({name:req.body.name}, {score: req.body.score}, function(err){
+                    console.log(err)
+                })
             }else{
                 var github = new Github(req.body);
                 github.save(function(err){

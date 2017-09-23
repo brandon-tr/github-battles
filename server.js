@@ -7,12 +7,12 @@ var app = express();
 require('./Server/config/mongoose.js')
 
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname , "./NoteAngular/dist")))
+app.use(express.static(path.join(__dirname , "./GithubAngular/dist")))
 
 
 var routeSetter = require('./Server/config/routes.js')
 routeSetter(app)
 
-var server = app.listen(4200, function(){
+var server = app.listen(5000, function(){
     console.log("listening")
 })

@@ -1,16 +1,35 @@
 var mongoose = require('mongoose')
-var Note = mongoose.model('Note')
+var Github = mongoose.model('Github')
 
 module.exports = {
-    create: function(req, res) {
-        var note = new Note(req.body)
-        note.save(function(err) {
-            console.log(err)
+    create1: function(req, res) {
+        console.log(req.body.name)
+        Github.find({name: req.body.name}, function(err, user){
+            if (!err) {
+                Github.update({name:req.body.name}, {score: req.body.score})
+            }else{
+                var github = new Github(req.body);
+                github.save(function(err){
+                    console.log(err)
+                })
+            }
         })
     },
-    show: function(req, res) {
-        Note.find({}, function(err, user){
-            res.json(user);
+    create2: function(req, res) {
+        Github.find({name: 'asdasd'}, function(err, user){
+            if (user.length > 0) {
+                Github.update({name:req.body.name}, {score: req.body.score})
+            }else{
+                var github = new Github(req.body);
+                github.save(function(err){
+                    console.log(err)
+                })
+            }
+        })
+    },
+    find: function(req, res) {
+        Github.find({}, function(err, user){
+            res.json(user)
         })
     }
 }

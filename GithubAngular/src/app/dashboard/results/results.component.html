@@ -1,0 +1,23 @@
+<p>
+  results works!
+</p>
+<img src="{{user1.avatar_url}}" alt="">
+<img src="{{user2.avatar_url}}" alt="">
+<div *ngIf="user1Score > user2Score">
+  1st place: {{user1.login}} <br>
+  {{user1Score}}
+  <br>
+  2nd place: {{user2.login}} <br>
+
+  {{user2Score}}
+</div>
+
+<div *ngIf="user2Score > user1Score">
+    1st place: {{user2.login}} <br>
+    {{user2Score}}
+    <br>
+    2nd place: {{user1.login}} <br>
+    
+    {{user1Score}}
+  </div>
+

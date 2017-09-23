@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/note')
+mongoose.connect('mongodb://localhost/Github')
 
 var fs = require('fs')
 var path = require('path')

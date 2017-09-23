@@ -1,7 +1,9 @@
 var mongoose = require('mongoose')
 
-var NoteSchema = new mongoose.Schema({
-    quote:{type:String, required:true},
+var GithubSchema = new mongoose.Schema({
+    name:{type:String, required:true},
+    picture:{type:String, required:true},
+    score:{type:Number, required:true}
 },{timestamps:true})
 
-var Note = mongoose.model('Note', NoteSchema)
+var Github = mongoose.model('Github', GithubSchema)

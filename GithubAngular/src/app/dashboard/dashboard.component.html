@@ -1,0 +1,34 @@
+<p *ngIf="user1List.status == 404">User is not found</p>
+<img src="{{user1List.avatar_url}}" alt="" srcset="">
+<form #formData1="ngForm" (submit)="User1Submit()">
+ Github Name <input type="text" name="user1_html" required minlength="2" [(ngModel)]="user1.name" #user1_html="ngModel">
+  <input type="submit" value="Submit" [disabled]="formData1.invalid">
+  <div *ngIf="user1_html.invalid && (user1_html.touched || user1_html.dirty)">
+    <p *ngIf="user1_html.errors.required">
+      Player1 is required
+    </p>
+    <p *ngIf="user1_html.errors.minlength">
+        Player 1 minimum length is 2
+      </p>
+  </div>
+</form>
+<div *ngIf="user2List.length > 1">
+
+</div>
+<p *ngIf="user2List.status == 404">User is not found</p>
+<img src="{{user2List.avatar_url}}" alt="" srcset="">
+<form #formData2="ngForm" (submit)="User2Submit()">
+   Github Name <input type="text" name="user2_html" required minlength="2" [(ngModel)]="user2.name" #user2_html="ngModel">
+    <input type="submit" value="Submit" [disabled]="formData2.invalid">
+    <div *ngIf="user2_html.invalid && (user2_html.touched || user2_html.dirty)">
+      <p *ngIf="user2_html.errors.required">
+        Player 2 is required
+      </p>
+      <p *ngIf="user2_html.errors.minlength">
+          Player 2 minimum length is 2
+        </p>
+    </div>
+  </form>
+
+
+<button (click)="Battle()">Battle</button>

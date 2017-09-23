@@ -1,0 +1,6 @@
+<div *ngFor="let player of list, let i = index">
+    <p>{{player.name}}</p>
+    <p><img src="{{player.picture}}" alt=""></p>
+    <p>{{player.score}}</p>
+    Rank<p>{{i + 1}}</p>
+</div>
